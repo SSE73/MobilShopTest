@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Mobil Shop Automation Test Suite">
-    <test name="Free CRM App Test Cases">
+    <test name="Mobil Shop Automation Test Cases">
         <classes>
             <class name="com.mobilshop.qa.testcases.LoginPageTest" />
             <class name="com.mobilshop.qa.testcases.HomePageTest" />
