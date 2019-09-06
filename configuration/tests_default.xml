@@ -2,9 +2,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Mobil Shop Automation Test Suite">
-    <test name="Mobil Shop Automation Test Cases">
+    <test name="LoginPageTest">
         <classes>
             <class name="com.mobilshop.qa.testcases.LoginPageTest" />
+        </classes>
+    </test>
+    <test name="HomePageTest">
+        <classes>
             <class name="com.mobilshop.qa.testcases.HomePageTest" />
         </classes>
     </test>

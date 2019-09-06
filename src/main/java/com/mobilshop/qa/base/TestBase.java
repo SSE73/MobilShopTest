@@ -26,8 +26,7 @@ public class TestBase {
     public TestBase() {
         try {
             prop = new Properties();
-            String currentDir = System.getProperty("user.dir");
-            FileInputStream ip = new FileInputStream(currentDir +"/src/main/java/com/mobilshop/qa/config/config.properties");
+            FileInputStream ip = new FileInputStream(System.getProperty("user.dir")+"/configuration/config.properties");
             prop.load(ip);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -41,11 +40,11 @@ public class TestBase {
         String browserName = prop.getProperty("browser");
 
         if(browserName.equals("chrome")) {
-            System.setProperty("webdriver.chrome.driver","/usr/local/bin/chromedriver");
+            System.setProperty("webdriver.chrome.driver",prop.getProperty("current_dir_browse_driver")+"chromedriver");
             driver = new ChromeDriver();
         }
-        else if(browserName.equals("FF")){
-            System.setProperty("webdriver.gecko.driver","/usr/local/bin/geckodriver");
+        else if(browserName.equals("firefox")){
+            System.setProperty("webdriver.gecko.driver",prop.getProperty("current_dir_browse_driver")+"geckodriver");
             driver = new FirefoxDriver();
         }
 
