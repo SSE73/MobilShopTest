@@ -3,6 +3,7 @@ package com.mobilshop.qa.testcases;
 import com.mobilshop.qa.base.TestBase;
 import com.mobilshop.qa.pages.HomePage;
 import com.mobilshop.qa.pages.LoginPage;
+import com.mobilshop.qa.util.TestUtil;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -12,6 +13,8 @@ public class LoginPageTest extends TestBase {
 
     LoginPage loginPage;
     HomePage homePage;
+    TestUtil testUtil;
+    GooglePage googlePage;
 
     public LoginPageTest() {
         super();
@@ -21,6 +24,7 @@ public class LoginPageTest extends TestBase {
     @BeforeMethod
     public void setUp() {
         initialization();
+        testUtil = new TestUtil();
         loginPage = new LoginPage();
     }
 
@@ -64,6 +68,13 @@ public class LoginPageTest extends TestBase {
     public void loginTest() {
         homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
         Assert.assertEquals(homePage.verifyHomePageTitle(), "Одноклассники");
+    }
+
+    @Test(priority = 8)
+    public void loginGoogleTest() {
+        homePage = loginPage.loginGoogle(prop.getProperty("username_google"), prop.getProperty("password_google"));
+        boolean flag = homePage.validateLogoImage();
+        Assert.assertTrue(flag);
     }
 
     @AfterMethod

@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 
@@ -23,6 +24,15 @@ public class TestUtil extends TestBase{
 
     public static String TESTDATA_SHEET_PATH = System.getProperty("user.dir")+"/src/main/java" +
             prop.getProperty("package_name")+"/testdata/"+prop.getProperty("name_file_test_data");
+
+    public void switchToFrame(){
+    }
+
+    public void switchToHandle(int indexHandleWindow){
+        Set<String> current_handles = driver.getWindowHandles();
+        String reg_handle = current_handles.toArray()[indexHandleWindow].toString();
+        driver.switchTo().window(reg_handle);
+    }
 
     static Workbook book;
     static Sheet sheet;

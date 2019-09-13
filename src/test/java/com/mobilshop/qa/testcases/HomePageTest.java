@@ -31,6 +31,12 @@ public class HomePageTest extends TestBase {
         Assert.assertEquals(homePage.verifyHomePageTitle(), "Одноклассники");
     }
 
+    @Test(priority = 2)
+    public void logoImageTest() {
+        boolean flag = homePage.validateLogoImage();
+        Assert.assertTrue(flag);
+    }
+
     @AfterMethod
     public void tearDown() {
         driver.quit();
