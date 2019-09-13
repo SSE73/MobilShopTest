@@ -8,4 +8,4 @@
 target
 screenshots/
 .allure
-/configuration/config.properties
+configuration/
